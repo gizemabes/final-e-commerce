@@ -9,7 +9,6 @@ import { Button } from 'primereact/button';
 
  const FooterFilter = () => {
    
-
     return (
         <div style={{  display: "flex", flexDirection: 'column' }}>
         <div style={{ backgroundColor: '#E0F2F1', display: "flex", flexDirection: 'row', padding:'60px', justifyContent: 'space-around', alignItems:'center'}}>
