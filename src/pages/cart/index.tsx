@@ -1,9 +1,8 @@
 
-import Header from "../components/Header"
+import Header from "../components/Header/index"
 import Image from "next/image"
 import { Button } from 'primereact/button';
-import CartProduct from "../components/cartProduct"
-import { InputNumber } from 'primereact/inputnumber';
+import CartProduct from "../components/cartProduct/index"
 
 
 const data = [
@@ -11,12 +10,11 @@ const data = [
         name: 'urun',
         price: 25,
         image: '/images/urun.png',
-        stokc: 333
+        stokc: 334
     }
 ]
 
 const Cart = () => {
-   
    
     const addToCart = () => {
 
