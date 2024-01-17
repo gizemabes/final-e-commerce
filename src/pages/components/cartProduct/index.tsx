@@ -14,10 +14,10 @@ const CartProduct = (props:CartProps) => {
 
 
      
-<div style={{ backgroundColor: '#f5f5f5',padding:'10px',flexDirection: 'row',flexWrap: 'wrap', justifyContent: "space-between", }}>
+<div style={{ backgroundColor: '#f5f5f5',padding:'0px',flexDirection: 'row',flexWrap: 'wrap', justifyContent: "space-between", }}>
     <div style={{ display: "flex", margin: 20, backgroundColor: 'white', flexDirection: 'row', justifyContent: "space-around" }}>
-         <Image width={230} height={100} alt="logo" src={image}/>
-         <div style={{flexDirection: 'column',color:'black',position:'relative',right:'300px' , top:'50px'}}>
+         <Image width={200} height={100} alt="logo" src={image}/>
+         <div style={{flexDirection: 'column',color:'black',position:'relative',right:'0px' , top:'50px'}}>
          <h3>{name}</h3>
          <small>{stock}</small>
          </div>
@@ -26,10 +26,10 @@ const CartProduct = (props:CartProps) => {
         
          <div style={{display:"flex" , flexDirection:'row',padding:'20px', justifyContent:'center',position:'relative' , top:'50px'}}>
          <CountInput />
-            <div style={{color:'black',position:'relative',left:'50px'}}>
+            <div style={{color:'black',position:'relative',left:'20px'}}>
             <span>{price}</span>
             </div>
-
+           
 
       
        

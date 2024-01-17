@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Layout from "@/pages/components/Layout/index";
-import Product from './components/Product/index';
+import Product from '../components/Product';
 
 const data = [
   {

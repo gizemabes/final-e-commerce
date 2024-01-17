@@ -40,7 +40,7 @@ const login = () => {
                  <div 
                  style={{ display: "flex", flexDirection: 'column',padding:14, color: '#808080', justifyContent: 'center',alignItems:'center',}}>
                  <Image width={200} height={200} alt="logo" src='/images/paragrafsayfa.png' />
-                 <p>e mail giriniz </p>
+                 <p>adınızı giriniz </p>
                  <input type="text" placeholder="" value={email} onChange={(e) => setEmail(e.target.value)} />
                  <p>şifre giriniz </p>
                  <input type="text" placeholder="" value={password} onChange={(e) => setPassword(e.target.value)} />
