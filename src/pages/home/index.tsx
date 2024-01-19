@@ -1,65 +1,102 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Layout from "@/pages/components/Layout/index";
-import Product from '@/pages/components/Product/index';
-
+import Product from '../components/Product';
+import { addProduct } from "../../redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 const data = [
   {
-    name: 'urun',
-    price: 25,
-    image: '/images/1.png',
-    stokc: 333
-  },
-  {
-    name: 'urun2',
-    price: 25,
-    image: '/images/2.png',
-    stokc: 46
-  },
-  {
-    name: 'urun3',
-    price: 25,
-    image: '/images/3.png',
-    stokc: 600
-  },
-  {
-    name: 'urun',
-    price: 25,
+    id:4,
+    name: 'Gözlük',
+    price: 670 ,
+    currency:'₺',
+    durum:'Stok',
+    fiyat:'Fiyat',
     image: '/images/11.png',
-    stokc: 333
+    stokc: 345
   },
   {
-    name: 'urun2',
-    price: 25,
+    id:5,
+    name: 'Gözlük',
+    price: 769,
+    currency:'₺',
+    durum:'Stok',
+    fiyat:'Fiyat',
     image: '/images/22.png',
     stokc: 46
   },
+
   {
-    name: 'urun3',
-    price: 25,
-    image: '/images/33.png',
-    stokc: 600
-  },
-  {
-    name: 'urun2',
-    price: 25,
+    id:6,
+    name: 'Saat',
+    price: 350,
+    currency:'₺',
+    durum:'Stok',
+    fiyat:'Fiyat',
     image: '/images/44.png',
     stokc: 46
   },
+
   {
-    name: 'urun3',
-    price: 25,
+    id:2,
+    name: 'Erkek T-shirt',
+    price: 500,
+    currency:'₺',
+    durum:'Stok',
+    fiyat:'Fiyat',
+    image: '/images/iç3.png',
+    stokc: 46
+  },
+  {
+    id:3,
+    name: 'Etek',
+    price: 350,
+    currency:'₺',
+    durum:'Stok',
+    fiyat:'Fiyat',
+    image: '/images/iç4.png',
+    stokc: 600
+  },
+
+  {
+    id:4,
+      name: 'Elbise',
+      price: 250,
+      currency:'₺',
+      durum:'Stok',
+      fiyat:'Fiyat',
+      image: '/images/33.png',
+      stokc: 600
+  },
+
+  {
+    id:6,
+    name: 'Kadın T-shirt',
+    price: 250,
+    currency:'₺',
+    durum:'Stok',
+    fiyat:'Fiyat',
     image: '/images/55.png',
     stokc: 600
   },
 ];
 
 const Home = () => {
-  const addToCart = () => {
-    // Sepete ekleme işlemi burada gerçekleştirilebilir.
+  const cart = useSelector((state: any) => state.cart);
+
+  const dispatch = useDispatch();
+  const addToCart = (item: any) => {
+
+    dispatch(addProduct({ ...item, quantity: 1}));
   };
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart])
+
+
 
   const mainSliderSettings = {
     infinite: true,
@@ -108,11 +145,15 @@ const Home = () => {
           {data.map((item, key) => (
             <div key={key} style={{ margin: 20, backgroundColor: '#fff', position: 'relative'}}>
               <Product
+
                 name={item.name}
                 price={item.price}
                 stock={item.stokc}
+                fiyat={item.fiyat}
+                durum={item.durum}
+                currency={item.currency}
                 image={item.image}
-                onClick={addToCart}
+                onClick={() => addToCart(item)}
               />
               
               
