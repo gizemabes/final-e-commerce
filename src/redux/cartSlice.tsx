@@ -11,6 +11,7 @@ interface Product {
   name: string;
   quantity: number;
   price: number;
+  image: string
 }
 
 const cartSlice = createSlice({
@@ -25,6 +26,11 @@ const cartSlice = createSlice({
       state.products.push(action.payload);
       state.quantity += action.payload.quantity;
       state.total += action.payload.price;
+    },
+    removeProduct: (state, action: PayloadAction<Product>) => {
+      state.products.push(action.payload);
+      state.quantity -= action.payload.quantity;
+      state.total -= action.payload.price;
     },
   },
 });

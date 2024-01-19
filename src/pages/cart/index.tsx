@@ -3,23 +3,31 @@ import Header from "../components/Header/index"
 import Image from "next/image"
 import { Button } from 'primereact/button';
 import CartProduct from "../components/cartProduct/index"
-
+import { useSelector } from "react-redux";
 
 const data = [
-    {
-        name: 'urun',
-        price: 25,
-        image: '/images/urun.png',
-        stokc: 334
-    }
+  {
+    id:1,
+    name: 'Küpe',
+    price: 50 ,
+    currency:'₺',
+    durum:'Stok',
+    fiyat:'Fiyat',
+    image: '/images/1.png',
+    stokc: 345
+  
+    
+  },
 ]
 
 const Cart = () => {
+  const cart = useSelector((state: any) => state.cart);
+  console.log(cart)
    
     const addToCart = () => {
 
     }
-
+console.log(cart.total)
     return(
 
         <div>
@@ -39,8 +47,8 @@ const Cart = () => {
             }}
           >
             <Image
-              width={50}
-              height={50}
+              width={60}
+              height={30}
               alt="logo"
               src="/images/cuzdanlogo.png"
             />
@@ -49,7 +57,7 @@ const Cart = () => {
               width={100}
               height={0}
               alt="logo"
-              src="/images/cuzdan.png"
+              src="/images/Sepetim1.png"
             />
           </div>
         </div>
@@ -63,17 +71,20 @@ const Cart = () => {
                <div style={{margin: 0, flexDirection: 'row', justifyContent: "center" ,backgroundColor:"#f5f5f5",width:'600px'}}>
   
                   {
-                      data.map((item, key) => {
+                      cart?.products?.map((item:any, key:any) => {
   
                           return(
-                              <CartProduct key={key} name={item.name} price={item.price} stock={item.stokc} image={item.image} onClick={addToCart} />
+                              <CartProduct key={key} name={item.name} price={item.price} stock={item.stokc} fiyat={item.fiyat} durum={item.durum} currency={item.currency} image={item.image} onClick={addToCart} />
                           )
                       }
                       )
                   }
                    
                 </div>
-                <div style={{ backgroundColor: '#f5f5f5', display: 'flex', justifyContent:'flex-start',padding:180 ,position:'relative' , right:'780px' }}>
+                <div style={{color:'#349590',position:'relative' , left:'450px'}}>
+                  <span>Sepet Tutarı: {cart.total}</span>
+                </div>
+                <div style={{ backgroundColor: '#f5f5f5', display: 'flex', justifyContent:'flex-start',padding:195,position:'relative' , right:'780px' }}>
                   <Button 
                     label="sepeti onayla"   style={{ backgroundColor: '#80CBC4', color: '#f5f5f5',padding:10,position:'relative',left:'1050px', top:'-180px'}}/>
               </div>

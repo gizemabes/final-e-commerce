@@ -13,6 +13,8 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [basketCount, setBasketCount] = useState(0);
   const [showAlert, setShowAlert] = useState(false);
+  const cart = useSelector((state: any) => state.cart);
+
 
   useEffect(() => {
     // Your useEffect logic here
@@ -67,7 +69,7 @@ const Header = () => {
 
         <div onClick={() => push('cart')}  style={{ display: 'flex', flexDirection: 'row', padding: 10, justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }}>
           <SlBasket size={25} color={'#349590'} />
-          <span style={{ position: 'relative', top: '-15px', left: '-10px', display: 'flex', width: '22px', height: '22px', justifyContent: 'center', alignItems: 'center', borderRadius: '11px', fontSize: '14px', background: 'red', color: 'white' }}>{basketCount}</span>
+          <span style={{ position: 'relative', top: '-15px', left: '-10px', display: 'flex', width: '22px', height: '22px', justifyContent: 'center', alignItems: 'center', borderRadius: '11px', fontSize: '14px', background: 'red', color: 'white' }}>{cart.products.length === 0 ? "0" : cart.products.length}</span>
         </div>
 
         <div 

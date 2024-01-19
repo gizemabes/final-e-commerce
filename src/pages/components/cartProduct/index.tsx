@@ -9,7 +9,7 @@ import CountInput from "../CountInput";
 
 
 const CartProduct = (props:CartProps) => {
-    const {name, price, stock, image} = props
+    const {name, price, stock,fiyat,durum,currency ,image} = props
     return(
 
 
@@ -19,7 +19,7 @@ const CartProduct = (props:CartProps) => {
          <Image width={200} height={100} alt="logo" src={image}/>
          <div style={{flexDirection: 'column',color:'black',position:'relative',right:'0px' , top:'50px'}}>
          <h3>{name}</h3>
-         <small>{stock}</small>
+         <small>{durum+' ' +stock}</small>
          </div>
 
         
@@ -27,7 +27,7 @@ const CartProduct = (props:CartProps) => {
          <div style={{display:"flex" , flexDirection:'row',padding:'20px', justifyContent:'center',position:'relative' , top:'50px'}}>
          <CountInput />
             <div style={{color:'black',position:'relative',left:'20px'}}>
-            <span>{price}</span>
+            <small>{fiyat+' '+price + ' ' + currency}</small>
             </div>
            
 
