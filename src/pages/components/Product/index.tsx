@@ -29,7 +29,7 @@ const styles = {
   };
 
     const Product = (props: ProductProps) => {
-    const {name, price,currency,fiyat,durum, stock, image, onClick} = props
+    const {name, price,currency,durum, stock, image, onClick, addFavorite} = props
     const {push, pathname} = useRouter()
     
     
@@ -42,17 +42,18 @@ const styles = {
     return(
         <div style={styles.cardContainer}>
             <div style={{display: "flex" , flexDirection: 'row',padding: 26}}>
-            <Image width={250} height={250} alt="logo" src={image}/>
+            <img width={250} height={250} alt="logo" src={`http://localhost:3000/${image}`}/>
             { pathname !== '/Favorite'  &&  (
-            <div onClick={() => push('Favorite')} style={{ display: 'flex', flexDirection: 'row', padding: 10, justifyContent: 'space-around', alignItems: 'center', cursor: 'pointer' }}>
+            <div onClick={() => addFavorite()} style={{ display: 'flex', flexDirection: 'row', padding: 10, justifyContent: 'space-around', alignItems: 'center', cursor: 'pointer' }}>
             <LuHeart size={25} color={'#349590'} />
             </div>
             )}
             <div style={{display: "flex" , flexDirection: 'column', padding:20, alignItems: 'center', justifyContent: 'space-around'}} >
                 <div style={styles.productInfo}>
                     <h3>{name}</h3>
-                    <small>{fiyat+' '+price + ' ' + currency}</small>
-                    <small>{durum+' ' +stock}</small>
+                    <small>{price}TL</small>
+                    <small>{stock}adet stokta</small>
+                
                     
                 </div>
                 <div>

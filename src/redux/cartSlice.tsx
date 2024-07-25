@@ -22,6 +22,7 @@ const cartSlice = createSlice({
     total: 0,
   } as CartState,
   reducers: {
+  
     addProduct: (state, action: PayloadAction<Product>) => {
       state.products.push(action.payload);
       state.quantity += action.payload.quantity;
